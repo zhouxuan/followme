@@ -1,0 +1,12 @@
+# Logs
+npm-debug.log*
+
+# FTP
+ftpsync.settings
+
+# SFTP
+sftp-config.json
+
+# Other files
+.svn
+.DS_Store
