@@ -56,7 +56,6 @@ async function getAllStars(users) {
 
 	for(var i = 0, l = users.length; i <l; i++){
 		var temp = await getPersonInfo(users[i]);
-		//console.log(temp.length)
 		depthUsers.push(...temp);
 		names = [];
 	}
@@ -65,7 +64,7 @@ async function getAllStars(users) {
 
 	console.log("第"+depth+"级人数：", depthUsers.length);
 
-	if(depth < 10){
+	if(depthUsers.length > 0){
 		console.log("总人数：", Object.keys(uids).length);
 		return await getAllStars(depthUsers);
 	}else{

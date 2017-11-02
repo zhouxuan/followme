@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
 var RelationSchema = new mongoose.Schema({
     uid         : String,
     follow_uid  : String,
-    combine_hash: String
+    combine_hash: { type: String, unique: true }
 });
 
 var RelationChangeSchema = new mongoose.Schema({
@@ -77,5 +77,15 @@ module.exports = {
                 console.log('saved word OK!');
             }
         });
+    },
+    getAllFollow: async function(uid) {
+        var relations = await RelationModel.find({ uid: uid });
+        
+        return relations || [];
+    },
+    checkIfUidStored: async function(uid) {
+        var uid_in = await UserModel.findOne({ uid: uid});
+
+        return uid_in;
     }
 };
