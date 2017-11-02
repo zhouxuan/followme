@@ -4,12 +4,13 @@
   "description": "",
   "main": "findStars.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2 start findStars.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mongoose": "*",
-    "md5":"*"
-  }
+    "md5":"*",
+    "pm2": "*"
+  },
 }
