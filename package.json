@@ -8,6 +8,8 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "mongoose": "*",
+    "md5":"*"
   }
 }
