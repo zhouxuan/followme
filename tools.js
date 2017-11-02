@@ -6,7 +6,7 @@ var UserSchema = new mongoose.Schema({
     uid         : { type: String, unique: true },
     name        : String,
     fans        : String,
-    followers   : String,
+    //followers   : String,
     type        : String
 });
 
@@ -24,18 +24,19 @@ var RelationChangeSchema = new mongoose.Schema({
 });
 
 var db = mongoose.createConnection('mongodb://wudi3:wudi3@127.0.0.1/relations');
-var UserModel = db.model('User', UserInfoSchema);
+var UserModel = db.model('User', UserSchema);
 var RelationModel = db.model('Relation', RelationSchema);
 var RelationChangeModel = db.model('RelationChange', RelationChangeSchema);
 
 module.exports = {
-    setUser: function(uid, name, fans, followers, type) {
+    //setUser: function(uid, name, fans, followers, type) {
+    setUser: function(uid, name, fans, type) {
         var user_model = new UserModel();
         
         user_model.uid = uid;
         user_model.name = name;
         user_model.fans = fans;
-        user_model.followers = followers;
+        //user_model.followers = followers;
         user_model.type = type;
 
         user_model.save(function(error, a) {
